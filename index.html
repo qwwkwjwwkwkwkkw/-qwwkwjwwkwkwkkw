@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>毕业快乐</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow-x: hidden; /* 隐藏水平滚动条 */
+            user-select: none;
+        }
+        
+        .text-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: fit-content;
+            height: 48px;
+            line-height: 48px;
+            text-align: center;
+            font-weight: bold;
+            white-space: nowrap;
+            font-size: 24px;
+        }
+        .letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateX(-100%) scale(0);
+            font-weight: bold;
+            animation: slideInAndGrow 1s ease forwards;
+        }
+        @keyframes slideInAndGrow {
+            100% {opacity: 1; transform: translateX(0) scale(1);}
+        }
+        .letter:nth-child(1) {animation-delay: 0s;}
+        .letter:nth-child(2) {animation-delay: 0.5s;}
+        .letter:nth-child(3) {animation-delay: 1s;}
+        .letter:nth-child(4) {animation-delay: 1.5s;}
+
+        /* 通知样式 */
+        #notification {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 100;
+            opacity: 0;
+            transition: bottom 0.5s, opacity 0.5s;
+        }
+        #notification.show {
+            bottom: 80px;
+            opacity: 1;
+        }
+
+        /* 按钮样式 */
+        .show-notification-button {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 200;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var notification = document.getElementById('notification');
+            var button = document.getElementById('showNotificationButton');
+
+            button.addEventListener('click', function() {
+                notification.classList.toggle('show'); // 使用toggle方便多次点击
+                setTimeout(function() {
+                    if (notification.classList.contains('show')) {
+                        notification.classList.remove('show');
+                    }
+                }, 6000); // 6秒后隐藏
+            });
+        });
+    </script>
+</head>
+    <p>韩安童在此祝所有人中考上岸</p>
+<body>
+    <div class="text-container">
+        <span class="letter">毕</span>
+        <span class="letter">业</span>
+        <span class="letter">快</span>
+        <span class="letter">乐</span>
+    </div>
+
+    <!-- 按钮触发通知 -->
+    <button id="showNotificationButton" class="show-notification-button">    </button>
+
+    <!-- 通知内容 -->
+    <div id="notification">
+        <p>居然被你发现了！祝你毕业快乐！</p>
+    </div>
+</body>
+</html>
