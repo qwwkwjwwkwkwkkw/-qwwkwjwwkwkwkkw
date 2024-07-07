@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华幻异龙 - 服务项目</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <div class="services-list">
+        <div class="service-card">
+            <h3>服务一</h3>
+            <p>描述服务一的详细信息，包括其特点和优势。</p>
+            <button class="show-details">查看详情</button>
+            <div class="details" style="display:none;">
+                <h4>服务一详情</h4>
+                <p>这里是服务一的详细描述，可以包含更多关于服务的信息，如服务流程、服务优势、案例研究等。</p>
+            </div>
+        </div>
+        <div class="service-card">
+            <h3>服务二</h3>
+            <p>描述服务二的详细信息，包括其特点和优势。</p>
+            <button class="show-details">查看详情</button>
+            <div class="details" style="display:none;">
+                <h4>服务二详情</h4>
+                <p>这里是服务二的详细描述，可以包含更多关于服务的信息，如服务流程、服务优势、案例研究等。</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const showDetailsButtons = document.querySelectorAll('.show-details');
+    showDetailsButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const details = this.nextElementSibling; // 获取按钮后面的详细信息区域
+            if (details.style.display === "none") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
+            }
+        });
+    });
+});
+    </script>
+</body>
+</html>

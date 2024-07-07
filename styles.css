@@ -1,0 +1,9 @@
+/* 自定义样式，可以覆盖Layui的默认样式 */
+body {
+    background-color: #ffffff;
+}
+
+   .layui-layout-admin {
+       display: flex;
+       flex-direction: column;
+   }
